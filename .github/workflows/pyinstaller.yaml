@@ -39,3 +39,19 @@ jobs:
       with:
         name: log4j-finder
         path: dist/linux
+
+  build-debian8:
+    runs-on: debian-8
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Package Application
+      uses: JackMcKew/pyinstaller-action-linux@main
+      with:
+        path: src
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: log4j-finder
+        path: dist/debian-8
